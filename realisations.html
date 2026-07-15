@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#0b0b0d;
-  --paper-2:#131316;
-  --line:#2a2a30;
-  --line-soft:#1c1c20;
-  --ink:#f3efe6;
-  --ink-soft:#a39e90;
-  --steel:#c9a24b;
-  --steel-bright:#e6c469;
-  --steel-glow:rgba(201,162,75,.14);
-  --accent:#c9a24b;
+  --paper:#f5f1e8;
+  --paper-2:#ece6d9;
+  --line:#ddd4c2;
+  --line-soft:#e8e1d2;
+  --ink:#28231b;
+  --ink-soft:#6f6858;
+  --steel:#41809f;
+  --steel-bright:#5e9dbd;
+  --steel-glow:rgba(65,128,159,.13);
+  --accent:#41809f;
   --display:'Sora',sans-serif;
   --body:'Sora',sans-serif;
   --mono:'IBM Plex Mono',monospace;
@@ -29,50 +29,19 @@ body{
   background:var(--paper);color:var(--ink);font-family:var(--body);
   line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
-/* faint technical grid, static */
-.grid-bg{
-  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;
-  background-image:
-    linear-gradient(var(--line-soft) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
-  background-size:46px 46px;
-  -webkit-mask-image:radial-gradient(circle at 70% 0%,#000,transparent 78%);
-  mask-image:radial-gradient(circle at 70% 0%,#000,transparent 78%);
-}
-/* carbon-fibre weave that unrolls on scroll */
-.carbon-bg{
-  position:fixed;left:0;right:0;top:0;height:100vh;z-index:0;pointer-events:none;
-  overflow:hidden;opacity:.5;
-}
-.carbon-bg .weave{
-  position:absolute;left:50%;top:0;transform:translateX(-50%);
-  width:140%;height:300%;
-  will-change:transform;
-  /* twill weave: black fibre threads with a warm gold catch-light */
-  background-color:#0d0d0f;
-  background-image:
-    repeating-linear-gradient(45deg,#1a1a1e 0 8px,transparent 8px 16px),
-    repeating-linear-gradient(-45deg,#16161a 0 8px,transparent 8px 16px),
-    repeating-linear-gradient(45deg,rgba(201,162,75,.5) 0 2px,transparent 2px 16px),
-    repeating-linear-gradient(-45deg,rgba(230,196,105,.28) 0 2px,transparent 2px 16px);
-  background-size:22px 22px,22px 22px,22px 22px,22px 22px;
-  /* fade the roll at the very top so it looks like it emerges */
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 100%);
-  mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 100%);
-}
 .wrap{position:relative;z-index:2}
 
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;justify-content:space-between;align-items:center;
   padding:20px clamp(20px,5vw,64px);
-  backdrop-filter:blur(10px);background:rgba(11,11,13,.7);
+  backdrop-filter:blur(10px);background:rgba(245,241,232,.78);
   transition:.3s;
 }
-nav.scrolled{background:rgba(13,13,16,.94);padding:13px clamp(20px,5vw,64px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+nav.scrolled{background:rgba(245,241,232,.95);padding:13px clamp(20px,5vw,64px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
 .brand .mark{width:30px;height:30px;display:grid;place-items:center;background:var(--steel);transform:rotate(45deg);border-radius:5px}
-.brand .mark span{transform:rotate(-45deg);color:#15110a;font-size:.9rem;font-weight:800}
+.brand .mark span{transform:rotate(-45deg);color:#ffffff;font-size:.9rem;font-weight:700}
 .brand b{color:var(--steel)}
 .navlinks{display:flex;gap:32px;list-style:none}
 .navlinks a{color:var(--ink-soft);text-decoration:none;font-size:.76rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;transition:.25s;position:relative}
@@ -87,7 +56,7 @@ nav.scrolled{background:rgba(13,13,16,.94);padding:13px clamp(20px,5vw,64px);bor
 header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px clamp(20px,5vw,64px) 90px;position:relative}
 .hero-tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--steel);margin-bottom:26px;display:flex;align-items:center;gap:14px;opacity:0;animation:rise .8s .1s forwards}
 .hero-tag::before{content:'';width:46px;height:1px;background:var(--steel)}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,8vw,6.6rem);line-height:.98;letter-spacing:-.03em;margin-bottom:30px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,8vw,6.6rem);line-height:.98;letter-spacing:-.03em;margin-bottom:30px}
 h1 .line{display:block;overflow:hidden}
 h1 .line span{display:block;opacity:0;transform:translateY(110%);animation:slideUp .9s cubic-bezier(.16,1,.3,1) forwards}
 h1 .line:nth-child(2) span{animation-delay:.12s}
@@ -97,7 +66,7 @@ h1 .accent{color:var(--steel)}
 .hero-sub b{color:var(--ink);font-weight:600}
 .hero-cta{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:rise .8s .65s forwards}
 .btn{font-family:var(--mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;padding:16px 32px;text-decoration:none;transition:.3s;cursor:pointer;border:none;border-radius:6px;font-weight:500}
-.btn-primary{background:var(--steel);color:#15110a}
+.btn-primary{background:var(--steel);color:#ffffff}
 .btn-primary:hover{background:var(--steel-bright);transform:translateY(-2px);box-shadow:0 10px 28px var(--steel-glow)}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn-ghost:hover{border-color:var(--steel);color:var(--steel)}
@@ -107,7 +76,7 @@ h1 .accent{color:var(--steel)}
 section{padding:clamp(80px,12vh,140px) clamp(20px,5vw,64px);position:relative}
 .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);margin-bottom:16px;display:flex;align-items:center;gap:12px}
 .eyebrow .num{color:var(--line);font-weight:600}
-.s-title{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,5vw,3.3rem);line-height:1.02;letter-spacing:-.025em;margin-bottom:28px;max-width:16ch}
+.s-title{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5vw,3.3rem);line-height:1.02;letter-spacing:-.025em;margin-bottom:28px;max-width:16ch}
 
 #about{border-top:1px solid var(--line)}
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,90px);align-items:start}
@@ -128,7 +97,7 @@ section{padding:clamp(80px,12vh,140px) clamp(20px,5vw,64px);position:relative}
 .proc-row:last-child{border-bottom:1px solid var(--line)}
 .proc-row:hover{padding-left:14px}
 .proc-row:hover .proc-num{color:var(--steel)}
-.proc-num{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3rem);color:var(--line);line-height:1;transition:.3s}
+.proc-num{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5vw,3rem);color:var(--line);line-height:1;transition:.3s}
 .proc-body h3{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.65rem);margin-bottom:12px;letter-spacing:-.01em}
 .proc-body p{color:var(--ink-soft);max-width:62ch;font-size:1.02rem}
 .proc-body .tag{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);background:var(--steel-glow);padding:5px 11px;margin-top:16px;margin-right:8px;border-radius:4px}
@@ -148,7 +117,7 @@ section{padding:clamp(80px,12vh,140px) clamp(20px,5vw,64px);position:relative}
 .piece:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(31,78,121,.1);border-color:var(--steel)}
 .piece .img{aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .piece .img svg{width:100%;height:100%}
-.piece .ph-label{position:absolute;bottom:12px;right:14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:rgba(0,0,0,.45);padding:4px 8px;border-radius:4px}
+.piece .ph-label{position:absolute;bottom:12px;right:14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:rgba(40,35,27,.14);padding:4px 8px;border-radius:4px}
 .piece .meta{padding:22px 24px}
 .piece .meta .cat{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:8px}
 .piece .meta h4{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-bottom:8px}
@@ -174,13 +143,13 @@ section{padding:clamp(80px,12vh,140px) clamp(20px,5vw,64px);position:relative}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--steel);box-shadow:0 0 0 3px var(--steel-glow)}
 .field textarea{min-height:120px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.submit-btn{width:100%;background:var(--steel);color:#15110a;font-family:var(--mono);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;padding:16px;border:none;border-radius:7px;cursor:pointer;transition:.3s;font-weight:600}
+.submit-btn{width:100%;background:var(--steel);color:#ffffff;font-family:var(--mono);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;padding:16px;border:none;border-radius:7px;cursor:pointer;transition:.3s;font-weight:600}
 .submit-btn:hover{background:var(--steel-bright);transform:translateY(-2px)}
 .form-msg{margin-top:16px;font-family:var(--mono);font-size:.82rem;display:none;padding:14px 16px;border-radius:7px}
 .form-msg.ok{display:block;background:var(--steel-glow);color:var(--steel);border:1px solid var(--steel)}
 
 footer{padding:42px clamp(20px,5vw,64px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--line);background:var(--paper)}
-footer .fbrand{font-family:var(--display);font-weight:800;letter-spacing:-.01em}
+footer .fbrand{font-family:var(--display);font-weight:700;letter-spacing:-.01em}
 footer .fbrand b{color:var(--steel)}
 footer p{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-spacing:.06em}
 
@@ -207,7 +176,7 @@ footer p{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-s
   border-radius:10px;padding:32px 28px;text-decoration:none;color:var(--ink);transition:.35s;position:relative;overflow:hidden;min-height:200px;
 }
 .explore-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--steel);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.explore-card:hover{border-color:var(--steel);transform:translateY(-4px);box-shadow:0 16px 40px rgba(201,162,75,.1)}
+.explore-card:hover{border-color:var(--steel);transform:translateY(-4px);box-shadow:0 16px 40px rgba(65,128,159,.10)}
 .explore-card:hover::before{transform:scaleX(1)}
 .explore-card .ec-num{font-family:var(--mono);font-size:.72rem;color:var(--steel);letter-spacing:.14em;margin-bottom:18px}
 .explore-card h3{font-family:var(--display);font-weight:700;font-size:1.35rem;margin-bottom:10px}
@@ -215,11 +184,34 @@ footer p{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-s
 .explore-card .ec-arrow{color:var(--steel);font-size:1.2rem;margin-top:18px;transition:transform .3s}
 .explore-card:hover .ec-arrow{transform:translateX(6px)}
 
+
+/* projet en cours : aileron */
+#aileron{border-top:1px solid var(--line)}
+.status-pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);background:var(--steel-glow);border:1px solid var(--steel);border-radius:20px;padding:7px 15px;margin-bottom:26px}
+.status-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--steel);animation:pulse 1.8s infinite}
+.ail-intro{max-width:64ch;color:var(--ink-soft);font-size:1.05rem;margin-bottom:14px}
+.ail-intro b{color:var(--ink);font-weight:600}
+.ail-credit{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);margin-bottom:40px}
+.ail-credit a{color:var(--steel);text-decoration:none;border-bottom:1px solid var(--steel)}
+.tl{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.tl-step{display:grid;grid-template-columns:150px 1fr;gap:clamp(20px,4vw,56px);padding:38px 0;border-top:1px solid var(--line);align-items:start}
+.tl-step:last-child{border-bottom:1px solid var(--line)}
+.tl-side{position:sticky;top:100px}
+.tl-num{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--steel);text-transform:uppercase}
+.tl-state{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-top:8px}
+.tl-state.done::before{content:'✓ ';color:var(--steel)}
+.tl-body h3{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.5rem);margin-bottom:10px;letter-spacing:-.01em}
+.tl-body p{color:var(--ink-soft);max-width:62ch;font-size:1rem;margin-bottom:18px}
+.tl-body p b{color:var(--ink);font-weight:600}
+.tl-img{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper-2)}
+.tl-img img{display:block;width:100%;height:auto}
+.tl-img.narrow{max-width:420px}
+.tl-cap{font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.04em}
+@media(max-width:860px){.tl-step{grid-template-columns:1fr;gap:14px}.tl-side{position:static;display:flex;gap:16px;align-items:baseline}}
+
 </style>
 </head>
 <body>
-<div class="carbon-bg"><div class="weave" id="weave"></div></div>
-<div class="grid-bg"></div>
 <div class="wrap">
 
 <nav id="nav">
@@ -236,48 +228,106 @@ footer p{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-s
 </nav>
 
 <div style="padding-top:120px">
+<section id="aileron">
+  <div class="eyebrow"><span class="num">03</span> Projet en cours</div>
+  <h2 class="s-title">Aileron carbone, moule imprimé en 3D</h2>
+  <div class="status-pill"><span class="dot"></span>En cours · préparation de l'infusion</div>
+  <p class="ail-intro">Un aileron automobile en fibre de carbone fabriqué de bout en bout : moule en <b>28 tuiles PETG imprimées en 3D</b>, assemblage, puis <b>infusion époxy sous vide</b>. Le projet documente aussi les choix d'ingénierie, y compris un premier design abandonné quand les chiffres l'ont condamné.</p>
+  <p class="ail-credit">Modèle de départ : ECO-LAP Studio, adapté et redécoupé pour mon imprimante · <a href="https://www.youtube.com/watch?v=BSv0XuPGUig" target="_blank" rel="noopener">voir la vidéo d'origine</a></p>
+
+  <div class="tl">
+    <div class="tl-step reveal">
+      <div class="tl-side"><div class="tl-num">Étape 01</div><div class="tl-state done">Terminé</div></div>
+      <div class="tl-body">
+        <h3>Premier design, abandonné sur les chiffres</h3>
+        <p>Un moule type GT3RS de 1650 mm, conçu depuis un mesh scanné converti en solide sous Fusion 360. Verdict au tranchage : <b>25 kg de PETG</b> à 15 % de remplissage et 28 impressions à la suite. Coût et délai désastreux, j'ai préféré repartir sur une géométrie plus raisonnable.</p>
+        <div class="tl-img"><img src="img/aileron/01-demi-moules-gt3rs.jpg" alt="Les deux demi-moules GT3RS sous Fusion 360" loading="lazy"></div>
+        <div class="tl-cap">Les deux demi-moules GT3RS, dépouille de 3°, restés à l'état de CAO</div>
+      </div>
+    </div>
+    <div class="tl-step reveal">
+      <div class="tl-side"><div class="tl-num">Étape 02</div><div class="tl-state done">Terminé</div></div>
+      <div class="tl-body">
+        <h3>Reconception : 6 fois moins de matière</h3>
+        <p>Reprise d'un aileron type BMW, redécoupé en <b>28 tuiles fines</b> adaptées à mon plateau de 256 mm, 4 tuiles par plateau. Résultat : <b>5 kg de PETG au lieu de 25</b>, soit 400 € de filament économisés pour un projet tout aussi pertinent.</p>
+        <div class="tl-img"><img src="img/aileron/02-decoupe-28-tuiles.jpg" alt="Demi-coquille découpée en 14 tuiles sous Fusion 360" loading="lazy"></div>
+        <div class="tl-cap">Une demi-coquille redécoupée en 14 tuiles sous Fusion 360</div>
+      </div>
+    </div>
+    <div class="tl-step reveal">
+      <div class="tl-side"><div class="tl-num">Étape 03</div><div class="tl-state done">Terminé</div></div>
+      <div class="tl-body">
+        <h3>Tranchage multiplaque</h3>
+        <p>Préparation sous Bambu Studio, orientation choisie pour préserver l'état de surface côté moulage. Environ <b>800 g et 16 h par plateau</b> de 4 tuiles.</p>
+        <div class="tl-img"><img src="img/aileron/03-tranchage-bambu.jpg" alt="Vue multiplaque dans Bambu Studio" loading="lazy"></div>
+        <div class="tl-cap">Les plateaux dans Bambu Studio, 4 tuiles par plaque</div>
+      </div>
+    </div>
+    <div class="tl-step reveal">
+      <div class="tl-side"><div class="tl-num">Étape 04</div><div class="tl-state done">Terminé</div></div>
+      <div class="tl-body">
+        <h3>Impression des tuiles</h3>
+        <p>Impression PETG sur Bambu Lab P2S, suivie plateau après plateau, timelapses à l'appui.</p>
+        <div class="tl-img"><img src="img/aileron/04-impression-petg.jpg" alt="Tuiles PETG en fin d'impression sur la P2S" loading="lazy"></div>
+        <div class="tl-cap">Fin d'un plateau de 16 h, image extraite du timelapse</div>
+      </div>
+    </div>
+    <div class="tl-step reveal">
+      <div class="tl-side"><div class="tl-num">Étape 05</div><div class="tl-state">En cours</div></div>
+      <div class="tl-body">
+        <h3>Assemblage et préparation à l'infusion</h3>
+        <p>Le moule inférieur est complet. Au programme : ponçage, collage, deux couches d'époxy, démoulant PVA, puis drapage des plis carbone <b>orientés à 45° l'un de l'autre</b> et infusion sous vide.</p>
+        <div class="tl-img"><img src="img/aileron/06-moule-inferieur-complet.jpg" alt="Le moule inférieur complet, 14 tuiles assemblées" loading="lazy"></div>
+        <div class="tl-cap">Le moule inférieur complet, 14 tuiles sur toute la longueur</div>
+        <div class="tl-img narrow" style="margin-top:18px"><img src="img/aileron/05-kit-infusion.jpg" alt="Kit d'infusion : pompe à vide, résine époxy, tissus techniques" loading="lazy"></div>
+        <div class="tl-cap">Le kit d'infusion prêt : pompe à vide, résine IN2, tissus techniques</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="eyebrow"><span class="num">04</span> Le portfolio</div>
   <h2 class="s-title">Réalisations</h2>
   <div class="work-grid">
     <div class="piece reveal">
-      <div class="img" style="background:linear-gradient(135deg,#16161a,#0e0e11)">
-        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#7a6a3f" stroke-width="1.4"><path d="M30 110 Q60 30 100 40 T170 110"/><path d="M30 110 L170 110"/><path d="M55 110 L70 55 M90 110 L98 45 M125 110 L128 50 M150 110 L150 70"/></g></svg>
+      <div class="img" style="background:linear-gradient(135deg,#ece5d6,#e6dfcf)">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb0c6" stroke-width="1.4"><path d="M30 110 Q60 30 100 40 T170 110"/><path d="M30 110 L170 110"/><path d="M55 110 L70 55 M90 110 L98 45 M125 110 L128 50 M150 110 L150 70"/></g></svg>
         <span class="ph-label">Photo à insérer</span>
       </div>
       <div class="meta"><div class="cat">Aérodynamique</div><h4>Élément aéro carbone</h4><p>Pièce fonctionnelle conçue en CAO puis fabriquée par infusion et post-cuisson.</p></div>
     </div>
     <div class="piece reveal">
-      <div class="img" style="background:linear-gradient(135deg,#1a1a1e,#101013)">
-        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#7a6a3f" stroke-width="1.4"><rect x="50" y="45" width="100" height="60" rx="8"/><path d="M65 45 L65 105 M85 45 L85 105 M105 45 L105 105 M125 45 L125 105 M135 45 L135 105"/></g></svg>
+      <div class="img" style="background:linear-gradient(135deg,#efe9dc,#e8e1d1)">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb0c6" stroke-width="1.4"><rect x="50" y="45" width="100" height="60" rx="8"/><path d="M65 45 L65 105 M85 45 L85 105 M105 45 L105 105 M125 45 L125 105 M135 45 L135 105"/></g></svg>
         <span class="ph-label">Photo à insérer</span>
       </div>
       <div class="meta"><div class="cat">Habillage</div><h4>Garniture intérieure</h4><p>Pièce esthétique au rendu carbone soigné, ajustée sur mesure au support.</p></div>
     </div>
     <div class="piece reveal">
-      <div class="img" style="background:linear-gradient(135deg,#17171b,#0d0d10)">
-        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#7a6a3f" stroke-width="1.4"><circle cx="100" cy="75" r="42"/><circle cx="100" cy="75" r="18"/><path d="M100 33 L100 57 M100 93 L100 117 M58 75 L82 75 M118 75 L142 75"/></g></svg>
+      <div class="img" style="background:linear-gradient(135deg,#eee8da,#e6dfcf)">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb0c6" stroke-width="1.4"><circle cx="100" cy="75" r="42"/><circle cx="100" cy="75" r="18"/><path d="M100 33 L100 57 M100 93 L100 117 M58 75 L82 75 M118 75 L142 75"/></g></svg>
         <span class="ph-label">Photo à insérer</span>
       </div>
       <div class="meta"><div class="cat">Structurel</div><h4>Support technique</h4><p>Optimisation de l'orientation des fibres pour la tenue mécanique sous charge.</p></div>
     </div>
     <div class="piece reveal">
-      <div class="img" style="background:linear-gradient(135deg,#16161a,#0e0e11)">
-        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#7a6a3f" stroke-width="1.4"><path d="M40 100 C70 60 130 60 160 100"/><path d="M40 100 L160 100"/><path d="M55 100 L62 78 M80 100 L84 70 M110 100 L112 68 M140 100 L142 80"/></g></svg>
+      <div class="img" style="background:linear-gradient(135deg,#ece5d6,#e6dfcf)">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb0c6" stroke-width="1.4"><path d="M40 100 C70 60 130 60 160 100"/><path d="M40 100 L160 100"/><path d="M55 100 L62 78 M80 100 L84 70 M110 100 L112 68 M140 100 L142 80"/></g></svg>
         <span class="ph-label">Photo à insérer</span>
       </div>
       <div class="meta"><div class="cat">Carrosserie</div><h4>Élément de carrosserie</h4><p>Conçu à partir d'un moule imprimé en 3D pour un ajustement précis.</p></div>
     </div>
     <div class="piece reveal">
-      <div class="img" style="background:linear-gradient(135deg,#1a1a1e,#101013)">
-        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#7a6a3f" stroke-width="1.4"><rect x="55" y="50" width="90" height="50" rx="6"/><path d="M55 65 L145 65 M70 50 L70 100 M100 50 L100 100 M130 50 L130 100"/></g></svg>
+      <div class="img" style="background:linear-gradient(135deg,#efe9dc,#e8e1d1)">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb0c6" stroke-width="1.4"><rect x="55" y="50" width="90" height="50" rx="6"/><path d="M55 65 L145 65 M70 50 L70 100 M100 50 L100 100 M130 50 L130 100"/></g></svg>
         <span class="ph-label">Photo à insérer</span>
       </div>
       <div class="meta"><div class="cat">Prototype</div><h4>Prototype validé en 3D</h4><p>Vérification de conformité et de dimensions avant fabrication en composite.</p></div>
     </div>
     <div class="piece reveal">
-      <div class="img" style="background:linear-gradient(135deg,#17171b,#0d0d10)">
-        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#7a6a3f" stroke-width="1.4"><path d="M50 110 L100 40 L150 110 Z"/><path d="M70 110 L100 65 M130 110 L100 65 M75 90 L125 90"/></g></svg>
+      <div class="img" style="background:linear-gradient(135deg,#eee8da,#e6dfcf)">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb0c6" stroke-width="1.4"><path d="M50 110 L100 40 L150 110 Z"/><path d="M70 110 L100 65 M130 110 L100 65 M75 90 L125 90"/></g></svg>
         <span class="ph-label">Photo à insérer</span>
       </div>
       <div class="meta"><div class="cat">Sur demande</div><h4>Votre projet ici</h4><p>Une idée de pièce sur mesure ? Décrivez-la, je la conçois et la fabrique.</p></div>
@@ -297,10 +347,8 @@ footer p{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-s
 
 <script>
 const nav=document.getElementById('nav');
-const weave=document.getElementById('weave');
 let latestY=0,ticking=false;
 function updateWeave(){
-  weave.style.transform='translateX(-50%) translateY('+(-latestY*0.45)+'px)';
   nav.classList.toggle('scrolled',latestY>40);
   ticking=false;
 }
